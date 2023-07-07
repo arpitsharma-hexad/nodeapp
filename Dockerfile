@@ -27,10 +27,10 @@ USER 1001
 
 # Install dependency loglevel=error will remove warnings
 # RUN npm install --loglevel=error || cat /opt/app-root/src/.npm/_logs/*-debug*.log
-RUN npm -v
-RUN node -v
-RUN npm install
-RUN cat ${NPM_INSTALL_FOLDER}/_logs/*-debug*.log
+RUN npm -v && \
+    node -v && \
+    NODE_DEBUG_NATIVE=tls npm install --loglevel=debug && \
+    cat ${NPM_INSTALL_FOLDER}/_logs/*-debug*.log
 
 # Run tests
 RUN CI=true REACT_APP_API_SCHEMA="http://" npm run test
