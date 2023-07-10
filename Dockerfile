@@ -29,7 +29,7 @@ USER 1001
 # RUN npm install --loglevel=error || cat /opt/app-root/src/.npm/_logs/*-debug*.log
 RUN npm -v && \
     node -v && \
-    NODE_DEBUG_NATIVE=tls npm install --loglevel=debug && \
+    NODE_DEBUG_NATIVE=tls npm install --loglevel=error && \
     cat ${NPM_INSTALL_FOLDER}/_logs/*-debug*.log
 
 # Run tests
