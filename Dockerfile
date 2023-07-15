@@ -6,7 +6,7 @@ FROM registry.access.redhat.com/ubi8/nginx-118 AS base
 ###################################################################
 ## Admin Frontend building
 ###################################################################
-FROM node:latest AS prepare_frontend
+FROM registry.access.redhat.com/ubi8/nodejs-16 AS prepare_frontend
 
 ARG API_HOSTNAME
 ENV GENERATE_SOURCEMAP false
